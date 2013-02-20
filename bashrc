@@ -1,4 +1,16 @@
+# platform detect
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+	platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+	platform='mac'
+fi
+
 # alias
+if [[ "$platform" == "linux" ]]; then
+	alias ls='ls --color'
+fi
 alias ls='ls -h'
 alias ll='ls -l'
 alias ll.='ll -A'
@@ -11,10 +23,13 @@ DARK_BLUE="\[\033[1;34m\]"
 RED="\[\033[0;31m\]"
 DARK_RED="\[\033[1;31m\]"
 NO_COLOR="\[\033[0m\]"
-export PS1="$BLUE\h:$RED\W>$NO_COLOR "
+export PS1="$BLUE\H:$RED\W>$NO_COLOR "
 export PS2='continue-> '
 export PS4='$0.$LINENO+ '
 
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxcxegedabagacad
 
+# clear varables
+unset platform
+unset unamestr
