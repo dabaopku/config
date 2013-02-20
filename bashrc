@@ -1,9 +1,9 @@
 # platform detect
 platform='unknown'
 unamestr=`uname`
-if [[ "$unamestr" == 'Linux' ]]; then
+if [[ "$unamestr" == "Linux" ]]; then
 	platform='linux'
-elif [[ "$unamestr" == 'Darwin' ]]; then
+elif [[ "$unamestr" == "Darwin" ]]; then
 	platform='mac'
 fi
 
@@ -11,8 +11,7 @@ fi
 if [[ "$platform" == "linux" ]]; then
 	alias ls='ls --color'
 fi
-alias ls='ls -h'
-alias ll='ls -l'
+alias ll='ls -lh'
 alias ll.='ll -A'
 alias clc="clear"
 alias gitlog='git log --reverse --all --pretty=format:"%h %ci | %d %s" --max-count=10 --date=short'
@@ -27,8 +26,10 @@ export PS1="$BLUE\H:$RED\W>$NO_COLOR "
 export PS2='continue-> '
 export PS4='$0.$LINENO+ '
 
-export CLICOLOR=1
-export LSCOLORS=Exfxcxdxcxegedabagacad
+if [[ "$platform" == "mac" ]]; then
+	export CLICOLOR=1
+	export LSCOLORS=Exfxcxdxcxegedabagacad
+fi
 
 # clear varables
 unset platform
