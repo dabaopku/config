@@ -12,7 +12,7 @@ if [[ "$platform" == "linux" ]]; then
 	alias ls='ls --color'
 fi
 alias ll='ls -lh'
-alias ll.='ll -A'
+alias ll.='ll -a'
 alias clc="clear"
 alias gitlog='git log --reverse --all --pretty=format:"%h %ci | %d %s" --max-count=10 --date=short'
 
