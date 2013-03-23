@@ -22,7 +22,10 @@ DARK_BLUE="\[\033[1;34m\]"
 RED="\[\033[0;31m\]"
 DARK_RED="\[\033[1;31m\]"
 NO_COLOR="\[\033[0m\]"
-export PS1="$BLUE\H:$RED\W>$NO_COLOR "
+if [[ "$HOSTNAME" == "" ]]; then
+	HOSTNAME=`hostname`
+fi
+export PS1="$BLUE$HOSTNAME:$RED\W>$NO_COLOR "
 export PS2='continue-> '
 export PS4='$0.$LINENO+ '
 
