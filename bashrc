@@ -25,7 +25,7 @@ NO_COLOR="\[\033[0m\]"
 if [[ "$HOSTNAME" == "" ]]; then
 	HOSTNAME=`hostname`
 fi
-export PS1="$BLUE$HOSTNAME:$RED\W>$NO_COLOR "
+export PS1="$BLUE$HOSTNAME:$RED\w>$NO_COLOR "
 export PS2='continue-> '
 export PS4='$0.$LINENO+ '
 
