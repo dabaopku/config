@@ -1,20 +1,23 @@
+
 # platform detect
-platform='unknown'
-unamestr=`uname`
-if [[ "$unamestr" == "Linux" ]]; then
-	platform='linux'
-elif [[ "$unamestr" == "Darwin" ]]; then
-	platform='mac'
+PLATFORM='unknown'
+UNAME_STR=`uname`
+if [[ "$UNAME_STR" == "Linux" ]]; then
+	PLATFORM='linux'
+elif [[ "$UNAME_STR" == "Darwin" ]]; then
+	PLATFORM='mac'
 fi
 
+
 # alias
-if [[ "$platform" == "linux" ]]; then
+if [[ "$PLATFORM" == "linux" ]]; then
 	alias ls='ls --color'
 fi
 alias ll='ls -lh'
 alias ll.='ll -a'
 alias clc="clear"
 alias gitlog='git log --reverse --all --pretty=format:"%h %ci | %d %s" --max-count=10 --date=short'
+
 
 # color
 BLUE="\[\033[0;34m\]"
@@ -29,11 +32,19 @@ export PS1="$BLUE$HOSTNAME:$RED\w>$NO_COLOR "
 export PS2='continue-> '
 export PS4='$0.$LINENO+ '
 
-if [[ "$platform" == "mac" ]]; then
+if [[ "$PLATFORM" == "mac" ]]; then
 	export CLICOLOR=1
 	export LSCOLORS=Exfxcxdxcxegedabagacad
 fi
 
-# clear varables
-unset platform
-unset unamestr
+unset PLATFORM
+unset UNAME_STR
+
+
+# useful scripts
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export PATH=$PATH:$DIR/scripts
+unset DIR
+
+
+
