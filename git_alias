@@ -1,0 +1,4 @@
+[alias]
+    logs = log --pretty=format:'%Cblue%h%Creset %<|(40,trunc)%s [%C(green)%<(21,trunc)%ai%x08%x08%Creset %Cred%an%Creset%C(yellow)%d%Creset]'
+    find = "!f(){ git logs --all -- '*'$1'*'; }; f"
+
