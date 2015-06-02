@@ -16,7 +16,7 @@ fi
 alias ll='ls -lh'
 alias ll.='ll -a'
 alias clc="clear"
-alias gitlog='git log --reverse --all --pretty=format:"%h %ci | %d %s" --max-count=10 --date=short'
+alias gitlog='git log --all --pretty=format:"%h %ci | %d %s" --max-count=10 --date=short'
 
 
 # color
