@@ -16,8 +16,12 @@ fi
 alias ll='ls -lh'
 alias ll.='ll -a'
 alias clc="clear"
-alias gitlog='git log --all --pretty=format:"%h %ci | %d %s" --max-count=10 --date=short'
+alias git.log='git log --all --pretty=format:"%h %ci | %d %s" --max-count=10 --date=short'
 
+alias nginx.start='sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
+alias nginx.stop='sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
+alias nginx.restart='nginx.stop && nginx.start'
+alias nginx.log.cd='cd ~/develop/archive/logs/nginx'
 
 # color
 BLUE="\[\033[0;34m\]"
