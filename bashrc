@@ -35,6 +35,7 @@ fi
 export PS1="$BLUE$HOSTNAME:$RED\w>$NO_COLOR "
 export PS2='continue-> '
 export PS4='$0.$LINENO+ '
+export ZSH_PS1='%{$fg[blue]%}%M%{$reset_color%}:%{$fg[red]%}%~> %{$reset_color%}'
 
 if [[ "$PLATFORM" == "mac" ]]; then
 	export CLICOLOR=1
