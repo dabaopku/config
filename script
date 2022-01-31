@@ -1,11 +1,17 @@
 alias git.log='git log --all --pretty=format:"%h %ci | %d %s" --max-count=10 --date=short'
 
-alias nginx.start='sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
-alias nginx.stop='sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
-alias nginx.restart='nginx.stop && nginx.start'
+if [[ "$DABAO_PLATFORM" == "mac" ]]; then
+    alias nginx.start='sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
+    alias nginx.stop='sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
+    alias nginx.restart='nginx.stop && nginx.start'
+fi
 
-alias gc.memory.usage="${DABAO_CONFIG_PATH}/scripts/gc_memory_usage.sh"
+if [[ "$DABAO_PLATFORM" == "mac" ]]; then
+    alias gc.memory.usage="${DABAO_CONFIG_PATH}/scripts/gc_memory_usage.sh"
+fi
 
-alias gc.quicklook.filetype="mdls -name kMDItemContentType"
-
+if [[ "$DABAO_PLATFORM" == "mac" ]]; then
+    alias gc.quicklook.filetype="mdls -name kMDItemContentType"
+    alias gc.quicklook.edit="vim ~/Library/QuickLook/QLStephen.qlgenerator/Contents/Info.plist"
+fi
 

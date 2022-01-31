@@ -1,24 +1,24 @@
 DABAO_CONFIG_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # platform detect
-PLATFORM='unknown'
+DABAO_PLATFORM='unknown'
 UNAME_STR=`uname`
 if [[ "$UNAME_STR" == "Linux" ]]; then
-    PLATFORM='linux'
+    DABAO_PLATFORM='linux'
 elif [[ "$UNAME_STR" == "Darwin" ]]; then
-	PLATFORM='mac'
+	DABAO_PLATFORM='mac'
 fi
-
+unset UNAME_STR
 
 # alias
-if [[ "$PLATFORM" == "linux" ]]; then
+if [[ "$DABAO_PLATFORM" == "linux" ]]; then
 	alias ls='ls --color'
 fi
 alias ll='ls -lh'
 alias ll.='ll -a'
 alias clc="clear"
 
-if [[ "$PLATFORM" == "mac" ]]; then
+if [[ "$DABAO_PLATFORM" == "mac" ]]; then
 	alias nginx.start='sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
 	alias nginx.stop='sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
 	alias nginx.restart='nginx.stop && nginx.start'
@@ -42,9 +42,6 @@ if [[ "$PLATFORM" == "mac" ]]; then
 	export CLICOLOR=1
 	export LSCOLORS=Exfxcxdxcxegedabagacad
 fi
-
-unset PLATFORM
-unset UNAME_STR
 
 
 source ${DABAO_CONFIG_PATH}/script
