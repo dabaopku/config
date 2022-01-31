@@ -1,9 +1,10 @@
+DABAO_CONFIG_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # platform detect
 PLATFORM='unknown'
 UNAME_STR=`uname`
 if [[ "$UNAME_STR" == "Linux" ]]; then
-	PLATFORM='linux'
+    PLATFORM='linux'
 elif [[ "$UNAME_STR" == "Darwin" ]]; then
 	PLATFORM='mac'
 fi
@@ -16,12 +17,12 @@ fi
 alias ll='ls -lh'
 alias ll.='ll -a'
 alias clc="clear"
-alias git.log='git log --all --pretty=format:"%h %ci | %d %s" --max-count=10 --date=short'
 
-alias nginx.start='sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
-alias nginx.stop='sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
-alias nginx.restart='nginx.stop && nginx.start'
-alias nginx.log.cd='cd ~/develop/archive/logs/nginx'
+if [[ "$PLATFORM" == "mac" ]]; then
+	alias nginx.start='sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
+	alias nginx.stop='sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
+	alias nginx.restart='nginx.stop && nginx.start'
+fi
 
 # color
 BLUE="\[\033[0;34m\]"
@@ -46,10 +47,6 @@ unset PLATFORM
 unset UNAME_STR
 
 
-# useful scripts
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-export PATH=$PATH:$DIR/scripts
-unset DIR
-
+source ${DABAO_CONFIG_PATH}/script
 
 
