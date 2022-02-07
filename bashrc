@@ -1,4 +1,3 @@
-DABAO_CONFIG_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # platform detect
 DABAO_PLATFORM='unknown'
