@@ -35,14 +35,21 @@ fi
 export PS1="$BLUE$HOSTNAME:$RED\w>$NO_COLOR "
 export PS2='continue-> '
 export PS4='$0.$LINENO+ '
-export ZSH_PS1='%{$fg[blue]%}%M%{$reset_color%}:%{$fg[red]%}%~> %{$reset_color%}'
+# 设置 zsh 提示符
+if [[ -z "$DABAO_CONFIG_DARKMODE" ]]; then
+	PROMPT='%F{blue}%M%f:%F{red}%~%f> '
+else
+	PROMPT='%F{cyan}%M%f:%F{9}%~%f> '
+fi
 
 if [[ "$PLATFORM" == "mac" ]]; then
 	export CLICOLOR=1
 	export LSCOLORS=Exfxcxdxcxegedabagacad
 fi
 
-
+if [[ -z "$DABAO_CONFIG_PATH" ]]; then
+	echo 'Set $DABAO_CONFIG_PATH First'
+fi
 source ${DABAO_CONFIG_PATH}/script
 
 
